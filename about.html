@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Aryavart Trading Community</title>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; scroll-behavior: smooth; }
+
+        body {
+            position: relative;
+            overflow-x: hidden;
+            color: white;
+            text-align: center;
+            background: black;
+        }
+
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: linear-gradient(to right, #111, #222);
+            color: goldenrod;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        header h1 { font-size: 22px; font-weight: bold; letter-spacing: 1px; }
+
+        nav { display: flex; }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 16px;
+            transition: color 0.3s, transform 0.3s;
+            padding: 5px 12px;
+            border-radius: 5px;
+        }
+
+        nav a:hover { color: goldenrod; transform: scale(1.1); }
+
+        /* About Container */
+        .about-container {
+            padding: 120px 20px;
+            max-width: 900px;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+        }
+
+        .about-container h2 {
+            color: goldenrod;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .about-container p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .feature-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .feature-box:hover { transform: scale(1.05); }
+
+        .feature-box h3 { color: goldenrod; margin-bottom: 10px; }
+
+        footer {
+            padding: 15px;
+            background: #222;
+            font-size: 14px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Video -->
+    <video autoplay loop muted>
+        <source src="https://media-hosting.imagekit.io//1140db5a3ac14041/VID_20250311193331%20(1)%20(1)%20(1).mp4?Expires=1836364918&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=IMzFhALoDfSJYoQ0zdfly9n6xBEsJ4wAvbXM9yc2OdZyc7Ly3iMrlGr2YH2zb~nDOGrq2s0a5JT0J9GNDXFQ-HXcI3d5LpJftn0En6pklsqVXPITkFYutQ~7cmv9PPTYrDrk68Mb-y5b31gNsI1ws43tKfNyYvTgstYc3QmUCNuQLqlfRjixyrYfXWSbz4Q2mZaXocxNS9k5JBfp9e9z9pxx39XFrroe9k9Q6uZ6StZqy3j0lYlPYJSWyY0oBvml78A7wvdEIMjQxaWaVhcQenDiqDY6e7OktWa41so-KPXSsFp9-SRy1SsEPVMgN~Rk-gSHCL8cjPSWWblKU12sgA__" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Aryavart Trading Community</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <!-- About Content -->
+    <div class="about-container">
+        <h2>Welcome to Aryavart Trading Community</h2>
+        <p>
+            Aryavart Trading Community ek **professional trading group** hai jo **stock market, forex, cryptocurrency** aur **future & options** trading me logon ki madad karta hai.  
+            Hamara lakshya **safe, secure aur profitable trading** ka environment dena hai jisme beginners aur experienced traders **dono grow kar sakein**.
+        </p>
+
+        <div class="about-features">
+            <div class="feature-box">
+                <h3>📈 Professional Trading Insights</h3>
+                <p>Hamari team **real-time market analysis aur trading strategies** provide karti hai jo aapko better decisions lene me madad karti hai.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>🔒 Secure & Transparent</h3>
+                <p>Hamari community **secure aur transparent trading services** pr focus karti hai jisse aapko **trusted trading environment** mile.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>📊 Real-Time Market Updates</h3>
+                <p>Live trading signals aur **daily market insights** ke saath, aapko hamesha latest market trends ka update milta hai.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>🌍 24/7 Support</h3>
+                <p>Hamara support team **24/7 available** hai jo aapke **trading related questions aur queries** solve karne me madad karega.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>💡 Beginner Friendly</h3>
+                <p>New traders ke liye **basic se advanced level tak** training aur support available hai jo unko professional trader banne me madad karta hai.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>📢 Community & Networking</h3>
+                <p>Ek **strong community ka part** bankar, aap experienced traders ke sath connect ho sakte hain aur **knowledge aur experience share** kar sakte hain.</p>
+            </div>
+        </div>
+
+        <p>🚀 **Join Aryavart Trading Community today** aur apni trading journey ko ek naye level par le jao!</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Contact: +91 7061101330 | Email: info@tradewithaditya833@gmail.com</p>
+        <p>© 2025 Aryavart Trading Community. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
