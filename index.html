@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aryavart Trading Community</title>
+    
+    <style>
+        /* Basic Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; scroll-behavior: smooth; }
+
+        /* Background Video */
+        body {
+            position: relative;
+            overflow-x: hidden;
+            color: white;
+            text-align: center;
+            background: black;
+            transition: background 0.3s, color 0.3s;
+        }
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: linear-gradient(to right, #111, #222);
+            color: goldenrod;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        header h1 {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        nav {
+            display: flex;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 16px;
+            transition: color 0.3s, transform 0.3s;
+            padding: 5px 12px;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            color: goldenrod;
+            transform: scale(1.1);
+        }
+        #mode-toggle {
+            background: goldenrod;
+            border: none;
+            padding: 7px 12px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            color: black;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
+        }
+        #mode-toggle:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        /* Form Container with Slider Effect */
+        .form-container {
+            position: relative;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            margin: 160px auto;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 10px;
+            transition: transform 0.5s ease-in-out;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
+        ::placeholder { color: white; }
+        select option { color: black; }
+        button {
+            background: goldenrod;
+            color: black;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* Scroll Animation */
+        .scroll-active {
+            transform: translateY(0px);
+        }
+
+        /* Submit Success Message */
+        #success-message {
+            display: none;
+            background: rgba(0, 255, 0, 0.2);
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+        #whatsapp-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px;
+            background: green;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        /* Description */
+        .description {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            margin: 1px;
+            border-radius: 20px;
+            font-size: 16px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 15px;
+            background: #222;
+            font-size: 14px;
+            margin-top: 50px;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background: white;
+            color: bule;
+        }
+        .dark-mode header {
+            background: #ddd;
+            color: black;
+        }
+        .dark-mode nav a {
+            color: black;
+        }
+        .dark-mode button {
+            background: bule;
+            color: white;
+        }
+        /* Right Side Social Media Slider */
+    .social-slider-right {
+        position: fixed;
+        right: 10px;
+        top: 100px; /* Header ke just neeche */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        z-index: 1000;
+    }
+    #toggle-slider {
+        background: goldenrod;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+    }
+    .social-links {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    .social-links a img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        transition: transform 0.3s;
+    }
+    .social-links a img:hover {
+        transform: scale(1.1);
+    }
+
+    </style>
+</head>
+<body>
+
+    <!-- Background Video -->
+    <video autoplay loop muted>
+        <source src="https://media-hosting.imagekit.io//1140db5a3ac14041/VID_20250311193331%20(1)%20(1)%20(1).mp4?Expires=1836364918&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=IMzFhALoDfSJYoQ0zdfly9n6xBEsJ4wAvbXM9yc2OdZyc7Ly3iMrlGr2YH2zb~nDOGrq2s0a5JT0J9GNDXFQ-HXcI3d5LpJftn0En6pklsqVXPITkFYutQ~7cmv9PPTYrDrk68Mb-y5b31gNsI1ws43tKfNyYvTgstYc3QmUCNuQLqlfRjixyrYfXWSbz4Q2mZaXocxNS9k5JBfp9e9z9pxx39XFrroe9k9Q6uZ6StZqy3j0lYlPYJSWyY0oBvml78A7wvdEIMjQxaWaVhcQenDiqDY6e7OktWa41so-KPXSsFp9-SRy1SsEPVMgN~Rk-gSHCL8cjPSWWblKU12sgA__" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Aryavart Trading Community</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+        </nav>
+        <button id="mode-toggle">🌙</button>
+    </header>
+
+    <!-- Form Container -->
+    <div class="form-container" id="form-box">
+       <h2>Start Trading Today</h2>
+        <form id="trading-form">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="tel" placeholder="Phone" required pattern="[0-9]{10}" title="Phone number must be exactly 10 digits">
+            <select>
+                <option value="select">Select tradeing interest</option>
+                <option value="future-options">Future Option</option>
+                <option value="forex">Forex</option>
+                <option value="interaday">Inetraday</option>
+                <option value="Swing-tradeing">Swing Tradeing</option>
+                <option value="long-term-investment">Long-term Investment</option>
+            </select>
+            <input type="number" placeholder="Amount" required min="100" max="999999">
+            <input type="text" placeholder="Location" required>
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- Submit Success Message & WhatsApp Button -->
+        <div id="success-message">
+            ✅ Form submitted successfully!
+            <a href="https://wa.me/917061101330?text=Sir%2C%20I%20am%20interested%20in%20trading.%20Please%20provide%20more%20details." target="_blank" id="whatsapp-btn">Go To WhatsApp</a>
+        </div>
+    </div>
+
+    <!-- Description Box -->
+    <div class="description">
+        <p>Why Choose Aryavart Trading Community?
+✅ User-Friendly Platform – Trade effortlessly with our intuitive and feature-rich interface.
+✅ Real-Time Market Updates – Stay ahead with live market data and expert insights.
+✅ Secure & Transparent – We prioritize security and transparency to ensure a safe trading environment.
+✅ 24/7 Support – Our dedicated team is always available to assist you with your trading needs.
+✅ Multiple Asset Classes – Trade in stocks, commodities, forex, and cryptocurrencies with ease.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Contact: +91 7061101330 | Email: info@tradewithaditya833@gmail.com</p>
+        <p>© 2025 Aryavart Trading Community. All rights reserved.</p>
+    </footer>
+    <!-- Right Side Social Media Slider -->
+<div class="social-slider-right">
+    <button id="toggle-slider">☰</button>
+    <div class="social-links" id="social-links">
+        <a href="https://www.instagram.com/aryavart_trading_community?igsh=MXVhMGhvM3ZqNm1xag==" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        </a>
+        <a href="https://t.me/tra_dewithaditya" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+        </a>
+    </div>
+</div>
+
+<script>
+document.getElementById("trading-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let submitButton = document.querySelector('button[type="submit"]');
+    let formContainer = document.getElementById("form-box");
+    let successMessage = document.getElementById("success-message");
+
+    // Submit Button Text Change to "Submitting..." and Disable
+    submitButton.innerHTML = '⏳ Submitting...';
+    submitButton.disabled = true;
+
+    let formData = {
+        Name: document.querySelector('input[placeholder="Name"]').value,
+        Email: document.querySelector('input[placeholder="Email"]').value,
+        Phone: document.querySelector('input[placeholder="Phone"]').value,
+        Interest: document.querySelector('select').value,
+        Amount: document.querySelector('input[placeholder="Amount"]').value,
+        Location: document.querySelector('input[placeholder="Location"]').value
+    };
+
+    fetch("https://sheetdb.io/api/v1/crtlgxmdw1ang", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ data: [formData] })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.created) {
+            // Form Hide & Show Success Message
+            document.getElementById("trading-form").style.display = "none"; // Form Hide karega
+            successMessage.style.display = "block"; // Success Message Show Karega
+        } else {
+            alert("Error saving data. Try again!");
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        alert("Submission failed! Try again.");
+    })
+    .finally(() => {
+        submitButton.innerHTML = 'Submit';
+        submitButton.disabled = false;
+    });
+});
+    document.getElementById("toggle-slider").addEventListener("click", function () {
+        let socialLinks = document.getElementById("social-links");
+        if (socialLinks.style.display === "flex") {
+            socialLinks.style.display = "none";
+        } else {
+            socialLinks.style.display = "flex";
+        }
+    });
+
+        // Dark & Light Mode Toggle
+        document.getElementById('mode-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            this.textContent = document.body.classList.contains('dark-mode') ? "☀️" : "🌙";
+        });
+        // Scroll Animation
+        window.addEventListener('scroll', function() {
+            let formBox = document.getElementById('form-box');
+            if (window.scrollY > 5) {
+                formBox.classList.add('scroll-active');
+            } else {
+                formBox.classList.remove('scroll-active');
+            }
+        });
+
+    </script>
+
+</body>
+</html>
